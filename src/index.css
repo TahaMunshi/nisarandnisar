@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Pure white background */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
+
+    /* Cards: pure white with subtle warmth */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+
+    /* Deep crimson red as primary */
+    --primary: 0 72% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light blush red as secondary surface */
+    --secondary: 0 50% 97%;
+    --secondary-foreground: 0 0% 8%;
+
+    --muted: 0 30% 97%;
+    --muted-foreground: 0 0% 30%;
+
+    /* Accent matches primary red */
+    --accent: 0 72% 35%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Soft red-tinted borders */
+    --border: 0 20% 92%;
+    --input: 0 20% 92%;
+    --ring: 0 72% 35%;
+
+    --radius: 0.25rem;
+
+    --gold: 0 72% 35%;
+    --gold-light: 0 65% 45%;
+
+    /* "Navy" tokens repurposed to deep red for legacy components */
+    --navy: 0 75% 22%;
+    --navy-light: 0 70% 30%;
+    --navy-dark: 0 80% 15%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 8%;
+    --sidebar-primary: 0 72% 35%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 50% 97%;
+    --sidebar-accent-foreground: 0 0% 8%;
+    --sidebar-border: 0 20% 92%;
+    --sidebar-ring: 0 72% 35%;
+  }
+
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 72% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 30% 14%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 20% 14%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 0 72% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 20% 18%;
+    --input: 0 20% 18%;
+    --ring: 0 72% 45%;
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 0 72% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 20% 14%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 20% 18%;
+    --sidebar-ring: 0 72% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .section-heading {
+    @apply text-4xl md:text-5xl font-semibold text-foreground mb-3;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .gold-underline {
+    @apply w-20 h-[3px] bg-accent rounded-full;
+  }
+
+  .page-hero {
+    @apply relative text-primary-foreground py-20 md:py-28;
+    background: linear-gradient(135deg, hsl(0 80% 18%) 0%, hsl(0 72% 35%) 100%);
+  }
+
+  .page-hero::after {
+    content: '';
+    @apply absolute inset-0;
+    background: radial-gradient(circle at 30% 50%, hsl(0 80% 45% / 0.4), transparent 60%);
+    z-index: 0;
+  }
+
+  .page-hero > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-3.5 rounded-sm font-medium tracking-wide uppercase text-xs hover:bg-[hsl(0_75%_28%)] transition-all shadow-md hover:shadow-xl;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border-2 border-white/40 text-white px-8 py-3 rounded-sm font-medium tracking-wide uppercase text-xs hover:bg-white hover:text-accent transition-all;
+  }
+
+  .eyebrow {
+    @apply text-accent text-xs tracking-[0.4em] uppercase font-semibold;
+  }
+}
